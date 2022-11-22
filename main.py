@@ -3,7 +3,7 @@ import ffmpeg
 import pytube
 import json
 
-with open("yt.json") as f:
+with open("config.json") as f:
     config = json.load(f)
 
 video = pytube.YouTube(f'https://www.youtube.com/watch?v={config["Youtube_id"]}')
