@@ -8,7 +8,7 @@ with open("config.json") as f:
 
 video = pytube.YouTube(f'https://www.youtube.com/watch?v={config["Youtube_id"]}')
 Streams = video.streams
-highresvid = Streams.filter(res = f"{config['Guality']}", file_extension = 'mp4').first()  
+highresvid = Streams.filter(res = f"{config['quality']}", file_extension = 'mp4').first()  
 
 highresvid.download(filename=f"{config['video_name']}_video.mp4")
 stream = sorted([stream for stream in video.streams if stream.mime_type.startswith("audio")], key=lambda stream: int(stream.abr[:-4]), reverse=True)[0]
